@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // tạo input & button
+        var inputBirthdate = document.createElement("input");
+        inputBirthdate.type = "date";
+        inputBirthdate.id = "birthdate";
+
+        var checkButton = document.createElement("button");
+        checkButton.innerText = "Kiểm tra";
+        checkButton.onclick = checkAge;
+
+        //div hiển thị kq
+        var resultDiv = document.createElement("div");
+        resultDiv.id = "result";
+
+        document.body.appendChild(inputBirthdate);
+        document.body.appendChild(checkButton);
+        document.body.appendChild(resultDiv);
+
+        // Hàm check tuổi và hiển thị kết quả
+        function checkAge() {
+        var inputDate = document.getElementById("birthdate").value;
+        var birthdate = new Date(inputDate);
+
+        // Date hiện tại
+        var currentDate = new Date();
+        
+        // Tính toán tuổi
+        var age = currentDate.getFullYear() - birthdate.getFullYear();
+        var monthDiff = currentDate.getMonth() - birthdate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < birthdate.getDate())) {
+            age--;
+        }
+
+        // check tuổi
+        if (age >= 18) {
+            document.getElementById("result").innerText = "Bạn đã đủ tuổi xem phim 'Nhà bà nữ'";
+        } else {
+            document.getElementById("result").innerText = "Bạn chưa đủ tuổi xem phim 'Nhà bà nữ', bạn hãy xem phim 'Doremon' nha";
+        }
+        }
+        
+    </script>
+</body>
+</html>

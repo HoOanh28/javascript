@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        // tạo input & button
+        var inputNumber = document.createElement("input");
+        inputNumber.type = "number";
+
+        var checkButton = document.createElement("button");
+        checkButton.innerText = "Kiểm tra";
+        checkButton.onclick = checkOddEven;
+
+        var resultDiv = document.createElement("div");
+
+        document.body.appendChild(inputNumber);
+        document.body.appendChild(checkButton);
+        document.body.appendChild(resultDiv);
+
+        // kiểm tra số chẵn lẻ
+        function checkOddEven() {
+        var number = parseInt(inputNumber.value);
+
+        if (number % 2 === 0) {
+            resultDiv.innerText = number + " là số chẵn";
+        } else {
+            resultDiv.innerText = number + " là số lẻ";
+        }
+        }
+    </script>
+</body>
+</html>
