@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label >Nhập số từ 1 đến 7:</label>
+    <input type="number" id="dayInput" min="1" max="7" required>
+
+    <button onclick="checkDay()">Kiểm tra</button>
+
+    <p id="result"></p>
+    <script>
+        function checkDay() {
+            // Lấy giá trị từ ô input
+            var day = parseInt(document.getElementById('dayInput').value);
+
+            // Kiểm tra xem số nhập vào có nằm trong khoảng từ 1 đến 7 không
+            var result = (day >= 1 && day <= 7) ? 'Ngày trong tuần: ' + ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'][day - 1] : 'Vui lòng nhập số từ 1 đến 7.';
+
+            // Hiển thị kết quả
+            document.getElementById('result').innerText = result;
+        }
+    </script> 
+</body>
+</html>
