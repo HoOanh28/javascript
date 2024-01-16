@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="#" id="wap">
+        <h3> Bảng điểm của em</h3><br><br>
+        Semester 1:
+        <input type="text" id="s1"></input><br><br>
+        Semester 2:
+        <input type="text" id="s2"></input><br><br>
+        Year :
+        <select name="" id="year">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br><br>
+        Summary :
+        <input type="text" id="sum" value=""></input> <br><br>
+        <input type="button" onclick="functionOK()" value="OK"></input>
+        <input type="button" onclick="functionCancle()" value="Cancle"></input>
+    </form>
+    <script>
+        function functionOK() {
+            var hk1 = parseInt(document.getElementById("s1").value);
+            var hk2 = parseInt(document.getElementById("s2").value);
+            var y = document.getElementById("year");
+            var value = y[y.selectedIndex].value;
+            var result;
+            if (value == 1) {
+                result = ((hk1 + (hk2 * 3)) / 3);
+            }
+            else if (value == 2) {
+                result = ((hk1 + (hk2 * 3)) / 4);
+            }
+            else if (value == 3) {
+                result = ((hk1 + (hk2 * 4)) / 5);
+            }
+            document.getElementById("sum").value = result;
+
+
+
+        }
+        function functionCancle() {
+            document.getElementById("s1").value = "";
+            document.getElementById("s2").value = "";
+            document.getElementById("sum").value = "";
+        }
+    </script>
+</body>
+
+</html>
