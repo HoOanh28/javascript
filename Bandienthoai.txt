@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" >
+    <title>Bán điện thoại</title>
+</head>
+<body>
+    <form action="" name="frm">
+        <table>
+            <th>Product Name: </th>
+            <th>Product Picture: </th>
+            <th>Product Price: </th>
+            <tr>
+                <td>
+                    <input type="text" id="name">    
+                </td>
+
+                <td>
+                    <input type="file" id="image" name="image">
+                </td>
+
+                <td>
+                    <input type="text" id="price">
+                </td>
+            </tr>
+        </table>
+    
+
+        <button type="button" onclick="add()">Add</button>
+        <h3>ĐIỆN THOẠI NỔI BẬT NHẤT</h3>
+    </form>
+
+    <div class="dienthoai"> 
+        <img id="display_image" style="width:30%">
+        <b><p id="display_name"></p></b>
+        <p id="display_price"></p>
+    </div>
+
+    <script>
+        function add() {
+            var pro_name = frm.name.value;
+            var image = document.getElementById("image");
+            var pro_price = frm.price.value;
+            
+
+            var file = image.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                var imageSrc = e.target.result;
+                document.getElementById("display_image").src = imageSrc;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+
+         
+            document.getElementById("display_name").innerHTML = name;
+            document.getElementById("display_price").innerHTML = price;
+        }
+    </script>
+
+</body>
+</html>
