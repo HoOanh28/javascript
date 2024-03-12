@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equi ="X-UA-Compatibe" content="IE=edge">
+    <!-- <link rel="stylesheet" href="product.js"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <script ></script>
+    <style>
+        /* CSS cho các phần khung */
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        /* CSS cho tiêu đề */
+        h1 {
+
+            text-align: center;
+        }
+
+        /* CSS cho card */
+        .card {
+            margin-bottom: 60px;
+            width: 50px;
+        }
+
+        /* CSS cho card body */
+        .card-body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="listProducts()">
+    
+    <div class="container-fluid" style="margin-top: 20px;">
+        <div class="row" id="men">
+            <div class="col-12">
+                <h1>THỜI TRANG NAM</h1>
+                <input type="text" id="manImage" placeholder="Link">
+                <input type="text" id="manName" placeholder="Tên sản phẩm">
+                <input type="text" id="manPrice" placeholder="Giá">
+                <button onclick="addProduct('man')">Thêm</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="container-fluid" style="margin-top: 20px;">
+        <div class="row" id="women">
+            <div class="col-12">
+                <h1>THỜI TRANG NỮ</h1>
+                <input type="text" id="womanImage" placeholder="Link hình ảnh">
+                <input type="text" id="womanName" placeholder="Tên sản phẩm">
+                <input type="text" id="womanPrice" placeholder="Giá">
+                <button onclick="addProduct('women')">Thêm</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        
+        var man = [
+        {
+        id:1,
+        name: "Quần Shorts Nam chạy bộ Ultra",
+        code: "TC102",
+        price: "280.000",
+        image: "https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/457219/item/goods_09_457219.jpg?width=750"
+    },
+    {
+        id:2,
+        name: "QUẦN SHORTS BLACK",
+        code: "TC103",
+        price: "450.000",
+        image: "https://media.coolmate.me/cdn-cgi/image/quality=80,format=auto/uploads/March2023/s6.917_72.jpg"
+    },
+    {
+        id:3,
+        name: "QUẦN SHORTS BEIGE",
+        code: "TC104",
+        price: "180.000",
+        image: "https://product.hstatic.net/1000271846/product/pants-beige-01_fcff1444268b47ffacc171b2748dbe5a_master.jpg"
+    },
+    {
+        id: 4,
+        name: "Áo Sơ Mi Trắng Tay Dài Dáng Rộng ",
+        code: "TC1025011BA",
+        price: " 280.000",
+        image: "https://www.bing.com/th/id/OIP.0mj2y-ok-ZEWeQzHHy-ouAHaHa?w=213&h=213&c=7&r=0&o=5&dpr=1.1&pid=1.7"
+    },
+];
+
+var women = [
+    {
+        id: 1,
+        name: "Áo khoác Nữ form rộng ",
+        code: "TC1025011BA",
+        price: "260.000",
+        image: "https://zizoou.com/cdn/shop/products/Ao-khoac-jacket-form-rong-oversize-7-6-Ao-khoac-trang-be-ZiZoou-Store_de69df3e-1358-47b4-a3cf-6ed5a99b7782.jpg?v=1677890431"
+    },
+    {
+        id:2,
+        name: "Váy Ngắn Nữ",
+        code: "EC201",
+        price: "350.000",
+        image: "https://pos.nvncdn.com/8d4112-8686/ps/20230526_mGoGB5Zeji.jpeg"
+    },
+    {
+        id:3,
+        name: "Chân váy nữ xếp ly",
+        code: "EC202",
+        price: "200.000",
+        image: "https://canifa.com/img/1000/1500/resize/6/k/6ks23w008-sk010-1-thumb.webp"
+    },
+    {
+        id:4,
+        name: "Váy Tay Bồng Cúp Ngực",
+        code: "EC203",
+        price: "450.000",
+        image: "https://bizweb.dktcdn.net/thumb/1024x1024/100/208/198/products/2676-dam-xoe-kieu-cup-nguc-tay-phong-xeo-ta.jpg?v=1567999285893"
+    },
+];
+
+function listProducts() {
+    for (let i = 0; i <= man.length - 1; i++) {
+        var demo = '<div class="col-3">';
+        demo += '<div class="card" style="width: 18rem;">';
+        demo += '<img src="'+man[i].image+'" class="card-img-top" style="height: 400px;">';
+        demo += '<div class="card-body">';
+        demo += '<div class="card-title">'+man[i].name + '</h5>';
+        demo += '<div class="card-text">'+man[i].price + '</p>';
+        demo += '<a href="#" class="btn btn-primary" onclick="order()">Đặt mua</a>';
+        demo += '</div>';
+        demo += '</div>';
+        demo += '</div>';
+        console.log(demo);
+        document.getElementById("men").innerHTML += demo;
+    }
+
+    for (let i = 0; i <= women.length - 1; i++) {
+        var demo = '<div class="col-3">';
+        demo += '<div class="card" style="width: 18rem;">';
+        demo += '<img src="'+women[i].image+'" class="card-img-top" style="height: 400px;">';
+        demo += '<div class="card-body">';
+        demo += '<div class="card-title">'+women[i].name + '</h5>';
+        demo += '<div class="card-text">'+women[i].price + '</p>';
+        demo += '<a href="#" class="btn btn-primary" onclick="order()">Đặt mua</a>';
+        demo += '</div>';
+        demo += '</div>';
+        demo += '</div>';
+        console.log(demo);
+        document.getElementById("women").innerHTML += demo;
+    }
+}
+function addProduct(category) {
+        var name, price, image;
+        if (category == 'man') {
+            name = document.getElementById('manName').value;
+            price = document.getElementById('manPrice').value;
+            image = document.getElementById('manImage').value;
+            man.push({ id: man.length + 1, name: name, code: "", price: price, image: image });
+            
+        } else if (category == 'women') {
+            name = document.getElementById('womanName').value;
+            price = document.getElementById('womanPrice').value;
+            image = document.getElementById('womanImage').value;
+            women.push({ id: women.length + 1, name: name, code: "", price: price, image: image });
+        }
+        listProducts(category);
+       
+    }
+
+    </script>
+    
+</body>
+</html>
